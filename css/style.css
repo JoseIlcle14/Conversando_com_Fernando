@@ -17,9 +17,11 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+    
 }
 #fernando_index img{
     width: 250px;
+    
 }
 #jogar{
     padding: 30px;
