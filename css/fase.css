@@ -24,8 +24,20 @@ body{
     border-radius: 10px;
     width: 600px;
     height: 100px; 
+    position: relative;
 }
 #container #falas{
     padding: 10px;
     font-size: 18px;
+}
+
+#botao input{
+    width: 40px;
+    height: 20px;
+    background-color: blue;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    bottom: 10px; /* Distância da borda inferior */
+    right: 10px;  /* Distância da borda direita */
 }
