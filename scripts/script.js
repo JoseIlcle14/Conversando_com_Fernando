@@ -3,14 +3,18 @@
 const botao = document.querySelector('.botao')
 const ok = document.querySelector('.ok')
 const respostas = document.querySelector('#respostas')
+const proximo = document.querySelector('.proxima-pergunta')
 let fala = document.getElementById("falas")
 let perguntaindex = 0
 let container = document.getElementById("fernando") // minha div
 let img = container.querySelector("img") // selecionando imagem da div 
 
+proximo.addEventListener("click", ProximasQuestões)
+
 //Função para esconder o botão Si e No
 function esconderRespostas() {
     respostas.style.display = 'none';  // Esconde
+    proximo.style.display = 'none'
 }
 
 // Função para mostrar o botão Si e No 
@@ -39,11 +43,8 @@ ok.addEventListener('click', ProximasQuestões)
 
 
 function ProximasQuestões(){   
-    // apaga os itens ateriores para colocar novos
-    while(respostas.firstChild){
-        respostas.removeChild(respostas.firstChild)
-    }
-
+    
+    resetarEstado()
     // faz os textos das perguntas aparecerem
     img.src = "../icons/fernando confuso.png"
     fala.textContent = perguntas[perguntaindex].question
@@ -66,15 +67,28 @@ function ProximasQuestões(){
     mostrarRespostas()
 }
 
+function resetarEstado(){
+    // apaga os itens ateriores para colocar novos
+    while(respostas.firstChild){
+        respostas.removeChild(respostas.firstChild)
+    }
+
+    document.body.removeAttribute("class")
+    //por algum motivo não está escondendo o botão
+    proximo.classList.add("hide")
+}
+
 function VerificarResposta(event){
     const answerCliked = event.target
 
     if( answerCliked.dataset.correct){
         document.body.classList.add('correct')
         img.src = "../icons/fernando sorriso aberto.png"
+        proximo.style.display = 'flex'
     }else{
         document.body.classList.add('incorrect')
         img.src = "../icons/fernando chateado.png"
+        proximo.style.display = 'flex'
     }
 
     document.querySelectorAll(".answer").forEach(input =>{
@@ -87,7 +101,10 @@ function VerificarResposta(event){
 
 
     })
+    proximo.classList.remove("hide")
+    perguntaindex++
 }
+
 
 
 
@@ -123,5 +140,14 @@ const perguntas = [
             { text: "No hablás" , correct : false},
             { text: "No hablar" , correct : false},
         ]
-    }
+    },
+    {
+        question: "pergunta 2",
+        answers :[
+            { text: "resposta 1" , correct : false},
+            { text: "resposta 2" , correct : false},
+            { text: "resposta 3" , correct : true},
+            { text: "resposta 4" , correct : false},
+        ]
+    } 
 ]
