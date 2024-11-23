@@ -30,21 +30,28 @@ body{
     font-size: 18px;
 }
 
-.botao input{
-    width: 50px;
-    height: 20px;
-    background-color: rgb(85, 85, 85);
+#container .botao input{
+    width: 80px;
+    height: 30px;
+    background-color: orange;
     border: none;
     cursor: pointer;
+    border-radius: 5px;
     position: absolute;
     bottom: 10px; /* Distância da borda inferior */
     right: 10px;  /* Distância da borda direita */
 }
 
+.hide {
+    display: none;
+}
+
+
 .ok input{
     width: 50px;
-    height: 20px;
-    background-color: rgb(85, 85, 85);
+    height: 30px;
+    background-color: orange;
+    border-radius: 5px;
     border: none;
     cursor: pointer;
     position: absolute;

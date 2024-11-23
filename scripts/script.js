@@ -8,14 +8,30 @@ let perguntaindex = 0
 let container = document.getElementById("fernando") // minha div
 let img = container.querySelector("img") // selecionando imagem da div 
 
+//Função para esconder o botão Si e No
+function esconderRespostas() {
+    respostas.style.display = 'none';  // Esconde
+}
 
+// Função para mostrar o botão Si e No 
+function mostrarRespostas() {
+    respostas.style.display = 'flex';  // Mostra
+}
+
+addEventListener('load', function () {
+    esconderRespostas();  // Esconde os botões na parte Este é Fernando, ele irá ajudá-lo a estudar...
+});
 
 // interação inicial
 botao.addEventListener('click', function(){
+
+    esconderRespostas()
+
     fala.textContent = 'Vou começar com algumas perguntas básicas, ok?'
     botao.style.display = 'none'
     ok.style.display = 'flex'
-    img.src = "/icons/fernando sorriso aberto.png"
+    img.src = "../icons/fernando sorriso aberto.png"
+    
 })
 
 
@@ -27,8 +43,9 @@ function ProximasQuestões(){
     while(respostas.firstChild){
         respostas.removeChild(respostas.firstChild)
     }
+
     // faz os textos das perguntas aparecerem
-    img.src = "/icons/fernando confuso.png"
+    img.src = "../icons/fernando confuso.png"
     fala.textContent = perguntas[perguntaindex].question
     perguntas[perguntaindex].answers.forEach(answer => {
         const NewAnswer = document.createElement("button")
@@ -40,7 +57,13 @@ function ProximasQuestões(){
         respostas.appendChild(NewAnswer)
 
         NewAnswer.addEventListener('click', VerificarResposta)
-    } )
+    })
+
+     // Esconde o botão "OK" para que apareça só opcão 1 e 2
+    ok.style.display = 'none';
+
+    // Mostra os botões Si e No 
+    mostrarRespostas()
 }
 
 function VerificarResposta(event){
@@ -48,10 +71,10 @@ function VerificarResposta(event){
 
     if( answerCliked.dataset.correct){
         document.body.classList.add('correct')
-        img.src = "/icons/fernando sorriso aberto.png"
+        img.src = "../icons/fernando sorriso aberto.png"
     }else{
         document.body.classList.add('incorrect')
-        img.src = "/icons/fernando chateado.png"
+        img.src = "../icons/fernando chateado.png"
     }
 }
 
