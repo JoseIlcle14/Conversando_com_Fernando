@@ -8,18 +8,20 @@
     <title>Document</title>
 </head>
 <body>
+    <!-- Div responsável por aparecer as imagens do personagem-->
     <div id="fernando">
         <img  src="/icons/fernando sorriso neutro.png" alt="">
     </div>
+    <!-- Container conde tem a área dos textos e botões de próximo-->
     <div id="container">
-        <p id="falas">Este é Fernando, um jovem que está estudando para uma prova de espanhol, ajude-o a estudar, converse com ele e corrijá-o se necessário</p>
-        <div id="botao">
-            <input type="button" value="Proximo">
-        </div>  
+        <p id="falas">Este é Fernando, ele irá ajudá-lo a estudar sobre verbos imperativos na forma nagativa regular</p>
+        <div class="botao"><input type="button" value="Proximo"></div> 
+        <div class="ok hide"> <input type="button" value="OK"></div> 
     </div>
+    <!--Div onde contém os botões de respostas-->
     <div id="respostas">
-        <input type="button" id="Opçao1" value="Sin">
-        <input type="button" id="Opçao2" value="No">
+        <input type="button" class="Opçao answer" value="Sin">
+        <input type="button" class="Opçao answer" value="No">
     </div>
 </body>
-</html>
+</html> 

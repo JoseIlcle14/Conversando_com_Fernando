@@ -1,37 +1,92 @@
 
 // quando o botão for clicado as falas serão mudadas
-const botao = document.getElementById('botao')
-let resposta = ['Dizer sim', 'ES']
+const botao = document.querySelector('.botao')
+const ok = document.querySelector('.ok')
+const respostas = document.querySelector('#respostas')
+let fala = document.getElementById("falas")
+let perguntaindex = 0
+let container = document.getElementById("fernando") // minha div
+let img = container.querySelector("img") // selecionando imagem da div 
 
+
+
+// interação inicial
 botao.addEventListener('click', function(){
-    let fala = document.getElementById("falas")
-    fala.textContent = ''
-    resposta.style.display = 'flex'
-    botao.style.display = "none"
-})
-
-// função pra mudar a imagem
-botao.addEventListener('click', function() {
-    let container = document.getElementById("fernando") // minha div
-    let img = container.querySelector("img") // selecionando imagem da div 
+    fala.textContent = 'Vou começar com algumas perguntas básicas, ok?'
+    botao.style.display = 'none'
+    ok.style.display = 'flex'
     img.src = "/icons/fernando sorriso aberto.png"
 })
 
-// gera as perguntas pré-estabelecidas
-botao.addEventListener('click', GerarPerguntas )
-function GerarPerguntas(){
-    let perguntas = [
-        '¿En qué contexto utilizamos los verbos imperativos negativos regulares?',
-        '¿Los verbos imperativos negativos regulares terminados en AR tienen terminación en la persona TÚ, son iguales a...?'
-    ]
-    let fala = document.getElementById("falas")
-    fala.textContent = (perguntas[0])
-    if (perguntas[0]) {
-        let Opção1 = document.getElementById('Opçao1')
-        let Opção2 = document.getElementById('Opçao2')
-        Opção2.value = 'Dizer sim'        
-        Opção1.value = 'Dizer não'
+
+ok.addEventListener('click', ProximasQuestões)
+
+
+function ProximasQuestões(){   
+    // apaga os itens ateriores para colocar novos
+    while(respostas.firstChild){
+        respostas.removeChild(respostas.firstChild)
+    }
+    // faz os textos das perguntas aparecerem
+    img.src = "/icons/fernando confuso.png"
+    fala.textContent = perguntas[perguntaindex].question
+    perguntas[perguntaindex].answers.forEach(answer => {
+        const NewAnswer = document.createElement("button")
+        NewAnswer.classList.add( "Opçao", 'answer')
+        NewAnswer.textContent = answer.text
+        if (answer.correct){
+            NewAnswer.dataset.correct = answer.correct
+        }
+        respostas.appendChild(NewAnswer)
+
+        NewAnswer.addEventListener('click', VerificarResposta)
+    } )
+}
+
+function VerificarResposta(event){
+    const answerCliked = event.target
+
+    if( answerCliked.dataset.correct){
+        document.body.classList.add('correct')
+        img.src = "/icons/fernando sorriso aberto.png"
+    }else{
+        document.body.classList.add('incorrect')
+        img.src = "/icons/fernando chateado.png"
     }
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const perguntas = [
+    {
+        question: "Qual das opções a seguir tem um verbo imperativo negativo regular? ",
+        answers :[
+            { text: "Opção 01" , correct : true},
+            { text: "Opção 02" , correct : false},
+    
+        ]
+    }
+]
