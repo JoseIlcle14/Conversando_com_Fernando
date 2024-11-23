@@ -76,6 +76,17 @@ function VerificarResposta(event){
         document.body.classList.add('incorrect')
         img.src = "../icons/fernando chateado.png"
     }
+
+    document.querySelectorAll(".answer").forEach(input =>{
+        if (input.dataset.correct) {
+            input.classList.add("correct")
+        }else{
+            input.classList.add("incorrect")
+        }
+        input.disabled = true
+
+
+    })
 }
 
 
@@ -105,11 +116,12 @@ function VerificarResposta(event){
 
 const perguntas = [
     {
-        question: "Qual das opções a seguir tem um verbo imperativo negativo regular? ",
+        question: "Qual é a forma negativa do imperativo para o verbo 'hablar' (tú)?",
         answers :[
-            { text: "Opção 01" , correct : true},
-            { text: "Opção 02" , correct : false},
-    
+            { text: "No hablas" , correct : false},
+            { text: "No hables" , correct : true},
+            { text: "No hablás" , correct : false},
+            { text: "No hablar" , correct : false},
         ]
     }
 ]

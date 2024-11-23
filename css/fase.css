@@ -62,18 +62,23 @@ body{
 .hide {
     display: none;
 }
-
+.answer:disabled{
+    cursor: not-allowed;
+}
 #respostas{
-    display: flex;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     justify-content: center;
-    align-items: center;
-    gap: 300px;
+    gap: 16px;
 }
 #respostas .Opçao {
     width: 100px;
     height: 30px;
     border: none;
     cursor: pointer;
+    border: 2px solid black;
+    border-radius: 5px;
 }
 
 .correct{
@@ -81,5 +86,6 @@ body{
 }
 
 .incorrect{
-    background-color: red;
+    background-color: rgb(201, 25, 25);
 }
+
