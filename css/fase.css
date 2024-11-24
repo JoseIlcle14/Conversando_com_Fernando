@@ -22,7 +22,7 @@ body{
     background-color: rgb(251, 253, 255);
     border-radius: 10px;
     width: 600px;
-    height: 100px; 
+    height: 120px; 
     position: relative;
 }
 #container #falas{
@@ -63,6 +63,7 @@ body{
 .proxima-pergunta{
    margin-top: 32px;
 }
+
 
 
 .hide {

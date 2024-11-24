@@ -8,6 +8,7 @@ let fala = document.getElementById("falas")
 let perguntaindex = 0
 let container = document.getElementById("fernando") // minha div
 let img = container.querySelector("img") // selecionando imagem da div 
+let acertos = 0
 
 proximo.addEventListener("click", ProximasQuestões)
 
@@ -45,6 +46,10 @@ ok.addEventListener('click', ProximasQuestões)
 function ProximasQuestões(){   
     
     resetarEstado()
+
+    if(perguntas.length === perguntaindex) {
+        return encerrarJogo()
+    }
     // faz os textos das perguntas aparecerem
     img.src = "../icons/fernando confuso.png"
     fala.textContent = perguntas[perguntaindex].question
@@ -75,7 +80,7 @@ function resetarEstado(){
 
     document.body.removeAttribute("class")
     //por algum motivo não está escondendo o botão
-    proximo.classList.add("hide")
+    proximo.style.display = 'none';
 }
 
 function VerificarResposta(event){
@@ -85,6 +90,7 @@ function VerificarResposta(event){
         document.body.classList.add('correct')
         img.src = "../icons/fernando sorriso aberto.png"
         proximo.style.display = 'flex'
+        acertos++
     }else{
         document.body.classList.add('incorrect')
         img.src = "../icons/fernando chateado.png"
@@ -103,6 +109,43 @@ function VerificarResposta(event){
     })
     proximo.classList.remove("hide")
     perguntaindex++
+}
+
+function encerrarJogo(){
+    const total = perguntas.length
+    const performance = Math.floor(acertos * 100/ total)
+    proximo.style.display = 'none';
+
+    let message = ""
+
+    switch(true) {
+        case(performance >= 90):
+            message = "Excelente!"
+            img.src = "../icons/fernando sorriso aberto.png"
+            break
+        case(performance >= 70):
+            message = "Muito bom!"
+            img.src = "../icons/fernando_feliz.png"
+            break
+        case(performance >= 50):
+            message = "Bom!"
+            img.src = "../icons/fernando sorriso neutro.png"
+            break
+        default:
+            message = "Nada mal, mas dá pra melhorar"
+            img.src = "../icons/fernando chateado.png"
+    }
+    fala.innerHTML = 
+    `
+        <p>
+            Você acertou ${acertos} de ${total} questões!
+            <span> Resultado: ${message}</span>
+        </p>
+        <div class = "botao">
+            <a href="../templates/index.html"><input type="button" value="Reiniciar"></a>
+        </div>
+
+    `
 }
 
 
@@ -142,12 +185,85 @@ const perguntas = [
         ]
     },
     {
-        question: "pergunta 2",
+        question: "No imperativo negativo em espanhol, qual das seguintes afirmações é verdadeira para verbos regulares?",
         answers :[
-            { text: "resposta 1" , correct : false},
-            { text: "resposta 2" , correct : false},
-            { text: "resposta 3" , correct : true},
-            { text: "resposta 4" , correct : false},
+            { text: "A conjugação é igual à do indicativo presente" , correct : false},
+            { text: "A conjugação usa a forma do subjuntivo presente" , correct : true},
+            { text: "A conjugação usa a forma do gerúndio" , correct : false},
+            { text: "Não há regras específicas para o imperativo negativo" , correct : false},
         ]
-    } 
+    },
+    {
+        question: "Escolha a opção correta para o imperativo negativo de 'comer' no pronome 'vosotros/as':",
+        answers :[
+            { text: "No coméis" , correct : false},
+            { text: "No coma" , correct : false},
+            { text: "No comáis" , correct : true},
+            { text: "No comen" , correct : false},
+        ]
+    },
+    {
+    question: "Para o verbo 'vivir', qual é a forma correta do imperativo negativo para o pronome 'usted'?",
+    answers :[
+        { text: "No vive" , correct : false},
+        { text: "No viva" , correct : true},
+        { text: "No vivas" , correct : false},
+        { text: "No viváis" , correct : false},
+    ]
+    },
+    {
+        question: "Para o verbo 'vivir', qual é a forma correta do imperativo negativo para o pronome 'usted'?",
+        answers :[
+            { text: "No vive" , correct : false},
+            { text: "No viva" , correct : true},
+            { text: "No vivas" , correct : false},
+            { text: "No viváis" , correct : false},
+        ]
+    },
+    {
+        question: "Para o verbo 'vivir', qual é a forma correta do imperativo negativo para o pronome 'usted'?",
+        answers :[
+            { text: "No vive" , correct : false},
+            { text: "No viva" , correct : true},
+            { text: "No vivas" , correct : false},
+            { text: "No viváis" , correct : false},
+        ]
+    },
+    {
+        question: "Qual é a forma correta do imperativo negativo de 'leer' para o pronome 'nosotros/as'?",
+        answers :[
+            { text: "No leamos" , correct : true},
+            { text: "No leéis" , correct : false},
+            { text: "No leamos" , correct : false},
+            { text: "No leyeramos" , correct : false},
+        ]
+    },
+    {
+        question: "No imperativo negativo, qual é a conjugação correta do verbo 'abrir' para 'tú'?",
+        answers :[
+            { text: "No abrís" , correct : false},
+            { text: "No abra" , correct : false},
+            { text: "No abras" , correct : true},
+            { text: "No abres" , correct : false},
+        ]
+    },
+    {
+        question: "Identifique a forma incorreta do imperativo negativo:",
+        answers :[
+            { text: "No hables(tú)" , correct : false},
+            { text: "No vivamos(nosotros/as)" , correct : false},
+            { text: "No coman(ustedes)" , correct : false},
+            { text: "No habla(tú)" , correct : true},
+        ]
+    },
+    {
+        question: "Qual das frases abaixo está correta no uso do imperativo negativo?",
+        answers :[
+            { text: "No corres en el pasillo" , correct : false},
+            { text: "No corras en el pasillo" , correct : false},
+            { text: "No corramos en el pasillo" , correct : false},
+            { text: "Ambas b e c." , correct : true},
+        ]
+    },
+
 ]
