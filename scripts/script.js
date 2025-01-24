@@ -152,7 +152,7 @@ function encerrarJogo(){
 
 const perguntas = [
     {
-        question: "Qual é a forma negativa do imperativo para o verbo 'hablar' (tú)?",
+        question: "¿Cuál es la forma negativa del imperativo del verbo hablar (tú)?",
         answers :[
             { text: "No hablas" , correct : false},
             { text: "No hables" , correct : true},
@@ -161,16 +161,16 @@ const perguntas = [
         ]
     },
     {
-        question: "No imperativo negativo em espanhol, qual das seguintes afirmações é verdadeira para verbos regulares?",
+        question: "En el imperativo negativo español, ¿cuál de las siguientes afirmaciones es cierta para los verbos regulares?",
         answers :[
-            { text: "A conjugação é igual à do indicativo presente" , correct : false},
-            { text: "A conjugação usa a forma do subjuntivo presente" , correct : true},
-            { text: "A conjugação usa a forma do gerúndio" , correct : false},
-            { text: "Não há regras específicas para o imperativo negativo" , correct : false},
+            { text: "La conjugación es la misma que la del presente de indicativo" , correct : false},
+            { text: "La conjugación utiliza la forma del presente de subjuntivo" , correct : true},
+            { text: "La conjugación utiliza la forma gerundio" , correct : false},
+            { text: "No hay reglas específicas para el imperativo negativo" , correct : false},
         ]
     },
     {
-        question: "Escolha a opção correta para o imperativo negativo de 'comer' no pronome 'vosotros/as':",
+        question: "Elija la opción correcta para el imperativo negativo de 'comer' en el pronombre 'vosotros/as':",
         answers :[
             { text: "No coméis" , correct : false},
             { text: "No coma" , correct : false},
@@ -179,7 +179,7 @@ const perguntas = [
         ]
     },
     {
-    question: "Para o verbo 'vivir', qual é a forma correta do imperativo negativo para o pronome 'usted'?",
+    question: "Para el verbo 'vivir', ¿cuál es la forma correcta del imperativo negativo para el pronombre 'usted'?",
     answers :[
         { text: "No vive" , correct : false},
         { text: "No viva" , correct : true},
@@ -187,7 +187,16 @@ const perguntas = [
         { text: "No viváis" , correct : false},
     ]
     },
-    {
+    {     //REPETIDOOO
+        question: "Para o verbo 'vivir', qual é a forma correta do imperativo negativo para o pronome 'usted'?",
+        answers :[
+            { text: "No vive" , correct : false},
+            { text: "No viva" , correct : true},
+            { text: "No vivas" , correct : false},
+            { text: "No viváis" , correct : false},
+        ]
+    },
+    {    //REPETIDOOO
         question: "Para o verbo 'vivir', qual é a forma correta do imperativo negativo para o pronome 'usted'?",
         answers :[
             { text: "No vive" , correct : false},
@@ -197,16 +206,7 @@ const perguntas = [
         ]
     },
     {
-        question: "Para o verbo 'vivir', qual é a forma correta do imperativo negativo para o pronome 'usted'?",
-        answers :[
-            { text: "No vive" , correct : false},
-            { text: "No viva" , correct : true},
-            { text: "No vivas" , correct : false},
-            { text: "No viváis" , correct : false},
-        ]
-    },
-    {
-        question: "Qual é a forma correta do imperativo negativo de 'leer' para o pronome 'nosotros/as'?",
+        question: "¿Cuál es la forma imperativa negativa correcta de 'leer' para el pronombre 'nosotros/as'?",
         answers :[
             { text: "No leamos" , correct : true},
             { text: "No leéis" , correct : false},
@@ -215,7 +215,7 @@ const perguntas = [
         ]
     },
     {
-        question: "No imperativo negativo, qual é a conjugação correta do verbo 'abrir' para 'tú'?",
+        question: "En el imperativo negativo, ¿cuál es la conjugación correcta del verbo 'abrir' para 'tú'?",
         answers :[
             { text: "No abrís" , correct : false},
             { text: "No abra" , correct : false},
@@ -224,7 +224,7 @@ const perguntas = [
         ]
     },
     {
-        question: "Identifique a forma incorreta do imperativo negativo:",
+        question: "Identifique la forma incorrecta del imperativo negativo:",
         answers :[
             { text: "No hables(tú)" , correct : false},
             { text: "No vivamos(nosotros/as)" , correct : false},
@@ -233,7 +233,7 @@ const perguntas = [
         ]
     },
     {
-        question: "Qual das frases abaixo está correta no uso do imperativo negativo?",
+        question: "¿Cuál de las siguientes frases es correcta en su uso del imperativo negativo?",
         answers :[
             { text: "No corres en el pasillo" , correct : false},
             { text: "No corras en el pasillo" , correct : false},
