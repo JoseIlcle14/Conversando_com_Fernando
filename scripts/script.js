@@ -150,30 +150,6 @@ function encerrarJogo(){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 const perguntas = [
     {
         question: "Qual é a forma negativa do imperativo para o verbo 'hablar' (tú)?",

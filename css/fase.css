@@ -17,13 +17,15 @@ body{
 }
 
 #container{
-
+    gap: 10px;
     margin: 5px auto;
     background-color: rgb(251, 253, 255);
     border-radius: 10px;
     width: 600px;
     height: 120px; 
     position: relative;
+    border: solid 3px black;
+    padding-bottom: 50px;
 }
 #container #falas{
     padding: 10px;
@@ -100,17 +102,19 @@ body{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     justify-content: center;
-    gap: 16px;
+    padding-top: 20px;
+    gap: 30px;
+    
 }
 #respostas .Opçao {
-    width: 100px;
-    height: 30px;
-    border: none;
+
+    padding: 7px;
     cursor: pointer;
     border: 2px solid black;
     border-radius: 5px;
-
     transition: 0.2s;
+    display: grid;
+    
 }
 #respostas .Opçao:not(:disabled):hover {
    filter:brightness(0.8);
@@ -118,6 +122,7 @@ body{
 
 .correct{
     background-color: green;
+    
 }
 
 .incorrect{
