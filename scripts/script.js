@@ -201,7 +201,7 @@ const perguntas = [
         answers: [
             { text: "No leamos", correct: true },
             { text: "No leéis", correct: false },
-            { text: "No leamos", correct: false },
+            { text: "No leámos", correct: false },
             { text: "No leyeramos", correct: false },
         ]
     },
